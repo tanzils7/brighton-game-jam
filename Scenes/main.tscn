@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" path="res://Scenes/sortingPortal.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://gnsr8klxmyfj" path="res://Scripts/Object Scripts/SPortal.gd" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://byhjifwmmnwi6" path="res://Sprites/FieldsTileset.png" id="6_21xkr"]
+
 [ext_resource type="PackedScene" uid="uid://mxatebwmw8vx" path="res://Scenes/Enemy.tscn" id="8_344ge"]
 [ext_resource type="AudioStream" uid="uid://b7wbrklmh84mt" path="res://Assets/Audio/Music/RPG world music.mp3" id="10_hptm8"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_344ge"]
 texture = ExtResource("6_21xkr")
@@ -390,3 +392,4 @@ position = Vector2(-54, 134)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1886076200]
 stream = ExtResource("10_hptm8")
+
