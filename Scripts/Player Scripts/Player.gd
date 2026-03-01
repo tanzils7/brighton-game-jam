@@ -1,24 +1,33 @@
 extends CharacterBody2D
 
 @export var speed: float = 300
+@export var dashSpeed: float = 600
 
 @onready var meleeHitbox = $MeleePivot/MeleeHitbox
 @onready var swordVFX = $MeleePivot/SwordVFX
 @onready var swingPivot = $MeleePivot 
-@onready var swordSFX = $"SFX Manager/swordSFX"
+@onready var sfxSword = $"SFX Manager/swordSFX"
+@onready var sfxDash = $"SFX Manager/sfxDash"
 
 const meleeCooldown: float = 0.5
 const attackLockTime: float = 0.12
 const attackActiveTime: float = 0.12
 const swingArc: float = 120
+const dashTime: float = 0.15
+const dashCooldown: float = 0.4
 
 var facingDir: Vector2 = Vector2.DOWN
-var isAttacking: bool = false
+var isAttacking: bool = false 
 var meleeTimer: float = 0
 var attackLockTimer: float = 0
 var attackActiveTimer: float = 0
 var swingStartAngle: float = 0
 var swingEndAngle: float = 0
+var isDashing: bool = false
+var dashTimer: float = 0
+var dashDirection: Vector2 = Vector2.ZERO
+var dashCooldownTimer: float = 0
+
 
 func meleeAttack():
 	if meleeTimer > 0:
@@ -41,9 +50,11 @@ func meleeAttack():
 	swingPivot.rotation = swingStartAngle
 	meleeHitbox.monitoring = true
 	swordVFX.visible = true
-	swordSFX.play();
+	sfxSword.play();
 
 func updateTimers(delta: float):
+	if dashCooldownTimer > 0:
+		dashCooldownTimer -= delta
 	# COOLDOWN TICK
 	if meleeTimer > 0:
 		meleeTimer -= delta
@@ -68,6 +79,18 @@ func updateTimers(delta: float):
 			meleeHitbox.monitoring = false
 			swordVFX.visible = false
 
+func startDash(direction: Vector2) -> void:
+	isDashing = true
+	dashTimer = dashTime
+	dashCooldownTimer = dashCooldown
+	
+	if direction == Vector2.ZERO:
+		direction = facingDir
+	
+	dashDirection = direction.normalized()
+	velocity = dashDirection * dashSpeed
+	sfxDash.play()
+
 func _ready() -> void:
 	swordVFX.visible = false
 	meleeHitbox.monitoring = false
@@ -84,6 +107,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Reset"):
 		get_tree().reload_current_scene()
+	
+	if Input.is_action_just_pressed("Dash") && dashCooldownTimer <= 0:
+		startDash(inputDir)
 	
 	velocity = inputDir * speed
 	

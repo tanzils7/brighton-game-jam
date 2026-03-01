@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://d4d1s7mkutlch"]
+[gd_scene format=3 uid="uid://d4d1s7mkutlch"]
 
-[ext_resource type="PackedScene" uid="uid://dtvnnpubyyrgq" path="res://Scenes/tileMapTestLayer.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" path="res://Scenes/tileMapTestLayer.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_8gbba"]
 
 [node name="Level" type="Node2D" unique_id=652244745]

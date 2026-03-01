@@ -39,3 +39,5 @@ mesh = SubResource("BoxMesh_rpqav")
 [node name="SFX Manager" type="Node2D" parent="." unique_id=1429526744]
 
 [node name="swordSFX" type="AudioStreamPlayer2D" parent="SFX Manager" unique_id=1846083574]
+
+[node name="sfxDash" type="AudioStreamPlayer2D" parent="SFX Manager" unique_id=350582363]
