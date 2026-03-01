@@ -297,7 +297,7 @@ shape = SubResource("CapsuleShape2D_qbkls")
 [node name="MeleePivot" type="Node2D" parent="." unique_id=1330704659]
 position = Vector2(4, 0)
 
-[node name="MeleeHitbox" type="Area2D" parent="MeleePivot" unique_id=362779]
+[node name="MeleeHitbox" type="Area2D" parent="MeleePivot" unique_id=362779 groups=["sword"]]
 
 [node name="SwordHitbox" type="CollisionShape2D" parent="MeleePivot/MeleeHitbox" unique_id=146244564]
 position = Vector2(16.5, -0.5)
@@ -329,3 +329,5 @@ animation = &"run_r"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractDetetctor" unique_id=1078037989]
 position = Vector2(0, 1.06)
 shape = SubResource("CapsuleShape2D_5ixxa")
+
+[connection signal="area_entered" from="MeleePivot/MeleeHitbox" to="." method="_on_melee_hitbox_area_entered"]

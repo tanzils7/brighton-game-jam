@@ -181,3 +181,8 @@ func _physics_process(delta: float) -> void:
 		velocity = inputDir * speed
 
 	move_and_slide()
+
+
+func _on_melee_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("sword"):
+		queue_free()
