@@ -164,8 +164,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Attack"):
 		meleeAttack()
 
-	if Input.is_action_just_pressed("Reset"):
-		get_tree().reload_current_scene()
+
 
 	if Input.is_action_just_pressed("Dash") and dashCooldownTimer <= 0 and not isDashing:
 		startDash(inputDir)

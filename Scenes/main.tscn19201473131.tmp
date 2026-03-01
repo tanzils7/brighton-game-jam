@@ -384,7 +384,6 @@ texture = SubResource("ViewportTexture_hibaj")
 script = ExtResource("11_pdsj5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="5" unique_id=265853246]
-position = Vector2(-1.2222223, -9)
 sprite_frames = SubResource("SpriteFrames_1w6v2")
 animation = &"idle"
 

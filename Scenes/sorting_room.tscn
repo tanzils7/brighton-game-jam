@@ -1,19 +1,27 @@
-[gd_scene format=4 uid="uid://d036kg3ynjr7q"]
+[gd_scene format=4 uid="uid://bq0vpa5qrw0x"]
 
-[ext_resource type="Script" uid="uid://bns58gm3l8sh" path="res://Scenes/sorting_room.gd" id="1_o3phl"]
-[ext_resource type="PackedScene" path="res://Scenes/tileMapTestLayer.tscn" id="1_qb6h6"]
+[ext_resource type="Script" path="res://Scenes/sorting_room.gd" id="1_o3phl"]
+[ext_resource type="PackedScene" uid="uid://dtvnnpubyyrgq" path="res://Scenes/tileMapTestLayer.tscn" id="1_qb6h6"]
+[ext_resource type="PackedScene" uid="uid://dhi3v7r4wmuhu" path="res://Scenes/terraintilemap.tscn" id="2_1jsxq"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_t178x"]
 [ext_resource type="PackedScene" uid="uid://jgm5w7av2rff" path="res://Scenes/SortingObject.tscn" id="3_08mog"]
-[ext_resource type="Script" uid="uid://n3kiv2lswyqs" path="res://Scripts/Object Scripts/Spawner.gd" id="4_2tdgx"]
-[ext_resource type="PackedScene" uid="uid://dfe3xecv6dhov" path="res://Scenes/drop_off_zone.tscn" id="5_1d4l7"]
+[ext_resource type="Script" path="res://Scripts/Object Scripts/Spawner.gd" id="4_2tdgx"]
+[ext_resource type="PackedScene" path="res://Scenes/drop_off_zone.tscn" id="5_1d4l7"]
 [ext_resource type="Script" uid="uid://cb0ohambdfa43" path="res://Scripts/Object Scripts/doz_owner.gd" id="5_wo6g7"]
-[ext_resource type="Script" uid="uid://nclo7615m8mb" path="res://Scripts/Object Scripts/reward_spawner.gd" id="7_ux05f"]
+[ext_resource type="Script" path="res://Scripts/Object Scripts/reward_spawner.gd" id="7_ux05f"]
 [ext_resource type="PackedScene" uid="uid://dj7y4uei7gduc" path="res://Scenes/Reward.tscn" id="8_xba8n"]
 [ext_resource type="AudioStream" uid="uid://3n7ypuemr7nc" path="res://Assets/Audio/Music/Sub space music.mp3" id="10_mjjnl"]
-[ext_resource type="PackedScene" uid="uid://d20xlomgstf6d" path="res://Scenes/button.tscn" id="11_eahx7"]
+[ext_resource type="PackedScene" path="res://Scenes/button.tscn" id="11_eahx7"]
+[ext_resource type="Texture2D" uid="uid://b7gndlhu5lta6" path="res://Sprites/Objects/Stone/Stone13.png" id="13_owbs6"]
+[ext_resource type="Texture2D" uid="uid://bjf60gqppclpu" path="res://Sprites/Objects/Decor/Tree1.png" id="14_6wkci"]
+[ext_resource type="Texture2D" uid="uid://dlwdonekpc51b" path="res://Sprites/Objects/Decor/Lamp1.png" id="15_q8kmr"]
+[ext_resource type="Texture2D" uid="uid://bn7iiyqiscufc" path="res://Sprites/Objects/8 Camp/6.png" id="16_52g2w"]
 
 [node name="SortingRoom" type="Node2D" unique_id=775320620]
 script = ExtResource("1_o3phl")
+
+[node name="Terrain" parent="." unique_id=606465971 instance=ExtResource("2_1jsxq")]
+position = Vector2(388, 413)
 
 [node name="TileMapLayer" parent="." unique_id=1386491614 instance=ExtResource("1_qb6h6")]
 position = Vector2(391, 410)
@@ -112,3 +120,27 @@ offset_left = 647.0
 offset_top = -58.0
 offset_right = 903.0
 offset_bottom = -27.0
+
+[node name="Stone13" type="Sprite2D" parent="." unique_id=1489694815]
+texture_filter = 1
+position = Vector2(171, 355)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("13_owbs6")
+
+[node name="Tree1" type="Sprite2D" parent="." unique_id=1836761593]
+texture_filter = 1
+position = Vector2(462.5, 281.5833)
+scale = Vector2(1.4090911, 1.4090909)
+texture = ExtResource("14_6wkci")
+
+[node name="Lamp1" type="Sprite2D" parent="." unique_id=2016765482]
+texture_filter = 1
+position = Vector2(372, 301.00003)
+scale = Vector2(1.85, 1.85)
+texture = ExtResource("15_q8kmr")
+
+[node name="6" type="Sprite2D" parent="." unique_id=201887009]
+texture_filter = 1
+position = Vector2(423.9423, 521.125)
+scale = Vector2(3.403846, 3.4038453)
+texture = ExtResource("16_52g2w")
