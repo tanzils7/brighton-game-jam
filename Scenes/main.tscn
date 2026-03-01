@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dtvnnpubyyrgq" path="res://Scenes/tileMapTestLayer.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_8gbba"]
-[ext_resource type="PackedScene" uid="uid://nubm6opwtfrf" path="res://Scenes/Portal.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://nubm6opwtfrf" path="res://Scenes/circuitPortal.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://b04v82d4cujy4" path="res://Scenes/sortingPortal.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://gnsr8klxmyfj" path="res://Scripts/Object Scripts/SPortal.gd" id="5_kry3j"]
 
 [node name="Level" type="Node2D" unique_id=652244745]
 
@@ -15,7 +17,7 @@ tile_map_data = PackedByteArray("AAAAABAAAAAAAAAAAAABABAAAAAAAAAAAAACABAAAAAAAAA
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385769602]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Label" type="Label" parent="." unique_id=207459135]
 offset_left = -39.0
@@ -24,6 +26,11 @@ offset_right = 41.0
 offset_bottom = 235.0
 text = "Hello guys"
 
-[node name="Portal" parent="." unique_id=1737815147 instance=ExtResource("3_8gbba")]
+[node name="CPortal" parent="." unique_id=1737815147 instance=ExtResource("3_8gbba")]
 position = Vector2(-329.00003, 344)
 scale = Vector2(5, 5)
+
+[node name="SPortal" parent="." unique_id=1550636127 instance=ExtResource("4_jjvhh")]
+position = Vector2(383, 362)
+scale = Vector2(5, 5)
+script = ExtResource("5_kry3j")
