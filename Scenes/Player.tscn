@@ -282,6 +282,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ixxa"]
+radius = 7.0
+height = 20.0
+
 [node name="Player" type="CharacterBody2D" unique_id=614550539]
 scale = Vector2(2, 2)
 script = ExtResource("1_rpqav")
@@ -296,11 +300,11 @@ position = Vector2(4, 0)
 [node name="MeleeHitbox" type="Area2D" parent="MeleePivot" unique_id=362779]
 
 [node name="SwordHitbox" type="CollisionShape2D" parent="MeleePivot/MeleeHitbox" unique_id=146244564]
-position = Vector2(21.5, -0.5)
+position = Vector2(16.5, -0.5)
 shape = SubResource("RectangleShape2D_rpqav")
 
 [node name="SwordVFX" type="MeshInstance2D" parent="MeleePivot" unique_id=839646246]
-position = Vector2(21.5, -0.4999997)
+position = Vector2(16.500002, -0.5)
 scale = Vector2(19, 7.0000005)
 mesh = SubResource("BoxMesh_rpqav")
 
@@ -319,3 +323,9 @@ position = Vector2(0, -25)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gntrk")
 animation = &"run_r"
+
+[node name="InteractDetetctor" type="Area2D" parent="." unique_id=1838938298]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractDetetctor" unique_id=1078037989]
+position = Vector2(0, 1.06)
+shape = SubResource("CapsuleShape2D_5ixxa")
