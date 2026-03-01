@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bfb82kp3umljj"]
+
+[ext_resource type="Texture2D" uid="uid://e36u5w126h7c" path="res://Sprites/Cable Horizontal.png" id="1_n21g0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnit7"]
+size = Vector2(32, 32)
+
+[node name="Area2D" type="Area2D" unique_id=2109788147]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1613947762]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_hnit7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1229647723]
+texture_filter = 1
+position = Vector2(2, 0)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("1_n21g0")

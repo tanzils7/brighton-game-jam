@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dtvnnpubyyrgq" path="res://Scenes/tileMapTestLayer.tscn" id="1_vuhiy"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_58c3e"]
+[ext_resource type="PackedScene" uid="uid://bfb82kp3umljj" path="res://Scenes/pipe.tscn" id="3_fgpi4"]
 
 [node name="CircuitsSubRoom" type="Node2D" unique_id=553984084]
 
@@ -18,3 +19,11 @@ remote_path = NodePath("../../Camera2D")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1080624603]
 position = Vector2(2, 1)
 zoom = Vector2(1.5, 1.5)
+
+[node name="Pipes" type="Node2D" parent="." unique_id=555880317]
+
+[node name="Area2D" parent="Pipes" unique_id=2109788147 instance=ExtResource("3_fgpi4")]
+position = Vector2(44, 92)
+
+[node name="Area2D2" parent="Pipes" unique_id=371985930 instance=ExtResource("3_fgpi4")]
+position = Vector2(76, 92)
