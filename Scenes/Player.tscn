@@ -6,6 +6,11 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbkls"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpqav"]
+size = Vector2(19, 7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rpqav"]
+
 [node name="Player" type="CharacterBody2D" unique_id=614550539]
 script = ExtResource("1_rpqav")
 
@@ -16,3 +21,16 @@ mesh = SubResource("CapsuleMesh_rpqav")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=490807766]
 shape = SubResource("CapsuleShape2D_qbkls")
+
+[node name="MeleePivot" type="Node2D" parent="." unique_id=1330704659]
+
+[node name="MeleeHitbox" type="Area2D" parent="MeleePivot" unique_id=362779]
+
+[node name="SwordHitbox" type="CollisionShape2D" parent="MeleePivot/MeleeHitbox" unique_id=146244564]
+position = Vector2(21.5, -0.5)
+shape = SubResource("RectangleShape2D_rpqav")
+
+[node name="SwordVFX" type="MeshInstance2D" parent="MeleePivot" unique_id=839646246]
+position = Vector2(21.5, -0.4999997)
+scale = Vector2(19, 7.0000005)
+mesh = SubResource("BoxMesh_rpqav")
