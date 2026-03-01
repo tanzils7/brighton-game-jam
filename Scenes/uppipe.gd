@@ -4,6 +4,9 @@ extends Area2D
 
 @onready var frames: Array[Sprite2D] = []
 @onready var player_inside = false
+@onready var correct_p = "down"
+@onready var is_correct = false
+@onready var is_up = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
