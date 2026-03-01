@@ -1,30 +1,37 @@
 extends Area2D
 
-@export var frame_sets: Array[SpriteFrames]
+signal correct_changed(is_correct: bool)
 
-@onready var frames: Array[Sprite2D] = []
-@onready var player_inside = false
-@onready var correct_p = "up"
-@onready var is_correct = false;
+@onready var player_inside := false
+@onready var is_correct := false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# Register with manager
+	var mgr := get_tree().current_scene.get_node_or_null("PuzzleManager")
+	if mgr:
+		mgr.register_pipe()
+		correct_changed.connect(mgr.pipe_correct_changed)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Interact") and player_inside:
 		$PipeH.visible = !$PipeH.visible
 		$PipeV.visible = !$PipeV.visible
-		print("Helo i work")
-		
 
+		# Update correctness after toggle
+		_update_correctness()
+
+func _update_correctness() -> void:
+	# Example: vertical = correct (you can replace this with your real logic)
+	var now_correct := $PipeV.visible
+
+	if now_correct != is_correct:
+		is_correct = now_correct
+		correct_changed.emit(is_correct)
 
 func _on_area_entered(area: Area2D) -> void:
-	player_inside = true
-	print("Player is inside")
+	if area.is_in_group("player"):
+		player_inside = true
 
 func _on_area_exited(area: Area2D) -> void:
-	player_inside = false
-	print("Player is NOT inside")
+	if area.is_in_group("player"):
+		player_inside = false

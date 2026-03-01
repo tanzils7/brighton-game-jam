@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b04v82d4cujy4" path="res://Scenes/sortingPortal.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://gnsr8klxmyfj" path="res://Scripts/Object Scripts/SPortal.gd" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://byhjifwmmnwi6" path="res://Sprites/FieldsTileset.png" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://dxvwmy4couwsd" path="res://Scenes/pm.gd" id="8_344ge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_344ge"]
 texture = ExtResource("6_21xkr")
@@ -380,3 +381,6 @@ scale = Vector2(5, 5)
 position = Vector2(383, 362)
 scale = Vector2(5, 5)
 script = ExtResource("5_kry3j")
+
+[node name="Node" type="Node" parent="." unique_id=385314362]
+script = ExtResource("8_344ge")
