@@ -15,7 +15,60 @@
 [ext_resource type="Texture2D" uid="uid://b7gndlhu5lta6" path="res://Sprites/Objects/Stone/Stone13.png" id="13_owbs6"]
 [ext_resource type="Texture2D" uid="uid://bjf60gqppclpu" path="res://Sprites/Objects/Decor/Tree1.png" id="14_6wkci"]
 [ext_resource type="Texture2D" uid="uid://dlwdonekpc51b" path="res://Sprites/Objects/Decor/Lamp1.png" id="15_q8kmr"]
-[ext_resource type="Texture2D" uid="uid://bn7iiyqiscufc" path="res://Sprites/Objects/8 Camp/6.png" id="16_52g2w"]
+[ext_resource type="Script" uid="uid://b151vblci325n" path="res://Scenes/6.gd" id="16_6wkci"]
+[ext_resource type="Texture2D" uid="uid://bx06ymeikb376" path="res://Sprites/campfir out.png" id="17_6wkci"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_owbs6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8kmr"]
+atlas = ExtResource("17_6wkci")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52g2w"]
+atlas = ExtResource("17_6wkci")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dcvj"]
+atlas = ExtResource("17_6wkci")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45x4n"]
+atlas = ExtResource("17_6wkci")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii8jr"]
+atlas = ExtResource("17_6wkci")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgtpm"]
+atlas = ExtResource("17_6wkci")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk0py"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8kmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52g2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dcvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45x4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii8jr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgtpm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="SortingRoom" type="Node2D" unique_id=775320620]
 script = ExtResource("1_o3phl")
@@ -143,4 +196,11 @@ texture = ExtResource("15_q8kmr")
 texture_filter = 1
 position = Vector2(423.9423, 521.125)
 scale = Vector2(3.403846, 3.4038453)
-texture = ExtResource("16_52g2w")
+texture = SubResource("ViewportTexture_owbs6")
+script = ExtResource("16_6wkci")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="6" unique_id=2041898470]
+position = Vector2(-4.683612, 5.5451927)
+scale = Vector2(0.8769424, 0.7163224)
+sprite_frames = SubResource("SpriteFrames_bk0py")
+animation = &"idle"

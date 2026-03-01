@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bqu62y4i5xi30" path="res://Sprites/Objects/Decor/Tree2.png" id="15_gt3je"]
 [ext_resource type="Texture2D" uid="uid://do4paljg6f8n8" path="res://Sprites/Objects/9 Bush/2.png" id="18_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://dtwoxr7w8f7o8" path="res://Sprites/Objects/Stone/stone9.png" id="20_u50mg"]
+[ext_resource type="Texture2D" uid="uid://blj56pb2jpxot" path="res://Sprites/Objects/PlaceForTower1.png" id="21_pdsj5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_344ge"]
 texture = ExtResource("6_21xkr")
@@ -453,3 +454,10 @@ position = Vector2(-348, 299)
 
 [node name="Area2D5" parent="." unique_id=1349035196 instance=ExtResource("8_344ge")]
 position = Vector2(312, 269)
+
+[node name="PlaceForTower1" type="Sprite2D" parent="." unique_id=677752076]
+visible = false
+texture_filter = 1
+position = Vector2(229, 390)
+scale = Vector2(2.0081966, 2.0081968)
+texture = ExtResource("21_pdsj5")
