@@ -2,26 +2,28 @@ extends Area2D
 
 signal correct_changed(is_correct: bool)
 
-@onready var player_inside: bool = false
-@onready var is_correct: bool = false
-
-@onready var pipe_h: CanvasItem = $PipeH
-@onready var pipe_v: CanvasItem = $PipeV
+@onready var player_inside := false
+@onready var is_correct := false
 
 func _ready() -> void:
-	var mgr = get_tree().current_scene.get_node_or_null("PuzzleManager")
+	# Register with manager
+	var mgr := get_tree().current_scene.get_node_or_null("PuzzleManager")
 	if mgr:
 		mgr.register_pipe()
 		correct_changed.connect(mgr.pipe_correct_changed)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Interact") and player_inside:
-		pipe_h.visible = !pipe_h.visible
-		pipe_v.visible = !pipe_v.visible
+		$PipeH.visible = !$PipeH.visible
+		$PipeV.visible = !$PipeV.visible
+
+		# Update correctness after toggle
 		_update_correctness()
 
 func _update_correctness() -> void:
-	var now_correct: bool = pipe_v.visible
+	# Example: vertical = correct (you can replace this with your real logic)
+	var now_correct := $PipeV.visible
+
 	if now_correct != is_correct:
 		is_correct = now_correct
 		correct_changed.emit(is_correct)

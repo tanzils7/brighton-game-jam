@@ -1,21 +1,25 @@
 [gd_scene format=4 uid="uid://bo8f7k2t6qy84"]
 
-
-[ext_resource type="PackedScene" path="res://Scenes/tileMapTestLayer.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dtvnnpubyyrgq" path="res://Scenes/tileMapTestLayer.tscn" id="1_bo1nx"]
 [ext_resource type="Script" uid="uid://c6velg1csgyla" path="res://Scripts/Level Scripts/Level.gd" id="1_ynf5e"]
-
 [ext_resource type="Texture2D" uid="uid://v33esdjmadm6" path="res://Sprites/TilesetField.png" id="2_6bp64"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://nubm6opwtfrf" path="res://Scenes/circuitPortal.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://b04v82d4cujy4" path="res://Scenes/sortingPortal.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://gnsr8klxmyfj" path="res://Scripts/Object Scripts/SPortal.gd" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://byhjifwmmnwi6" path="res://Sprites/FieldsTileset.png" id="6_21xkr"]
-
-
-[ext_resource type="PackedScene" uid="uid://mxatebwmw8vx" path="res://Scenes/Enemy.tscn" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://pyrb6yvw27a0" path="res://Scenes/Enemy.tscn" id="8_344ge"]
+[ext_resource type="Texture2D" uid="uid://cbvk6wraqi0gg" path="res://Sprites/Objects/Flower/flower1.png" id="10_h1bgf"]
 [ext_resource type="AudioStream" uid="uid://b7wbrklmh84mt" path="res://Assets/Audio/Music/RPG world music.mp3" id="10_hptm8"]
-
-
+[ext_resource type="Texture2D" uid="uid://b7gndlhu5lta6" path="res://Sprites/Objects/Stone/Stone13.png" id="11_b3802"]
+[ext_resource type="Texture2D" uid="uid://cbahp4328e2p6" path="res://Sprites/Objects/9 Bush/1.png" id="12_fevyy"]
+[ext_resource type="Texture2D" uid="uid://cftai3bmcshd3" path="res://Sprites/Objects/8 Camp/1.png" id="12_hibaj"]
+[ext_resource type="Texture2D" uid="uid://bjf60gqppclpu" path="res://Sprites/Objects/Decor/Tree1.png" id="13_pdsj5"]
+[ext_resource type="Texture2D" uid="uid://bfkqahb3jbniv" path="res://Sprites/Objects/Decor/Lamp3.png" id="14_ee4r6"]
+[ext_resource type="Texture2D" uid="uid://vnlvw05wbymy" path="res://Sprites/Objects/8 Camp/5.png" id="14_pdsj5"]
+[ext_resource type="Texture2D" uid="uid://bqu62y4i5xi30" path="res://Sprites/Objects/Decor/Tree2.png" id="15_gt3je"]
+[ext_resource type="Texture2D" uid="uid://do4paljg6f8n8" path="res://Sprites/Objects/9 Bush/2.png" id="18_3pmx8"]
+[ext_resource type="Texture2D" uid="uid://dtwoxr7w8f7o8" path="res://Sprites/Objects/Stone/stone9.png" id="20_u50mg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_344ge"]
 texture = ExtResource("6_21xkr")
@@ -376,6 +380,7 @@ scale = Vector2(2, 2)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Label" type="Label" parent="." unique_id=207459135]
+visible = false
 offset_left = -39.0
 offset_top = 212.0
 offset_right = 41.0
@@ -383,6 +388,7 @@ offset_bottom = 235.0
 text = "Hello guys"
 
 [node name="CPortal" parent="." unique_id=1737815147 instance=ExtResource("3_8gbba")]
+visible = false
 position = Vector2(-329.00003, 344)
 scale = Vector2(5, 5)
 
@@ -391,66 +397,80 @@ position = Vector2(383, 362)
 scale = Vector2(5, 5)
 script = ExtResource("5_kry3j")
 
-
 [node name="Area2D" parent="." unique_id=1205553354 instance=ExtResource("8_344ge")]
 position = Vector2(-54, 134)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1886076200]
 stream = ExtResource("10_hptm8")
 
-
-[node name="Objects" type="Node2D" parent="." unique_id=19212036]
-
-[node name="Stone1" type="Sprite2D" parent="." unique_id=1105717683]
+[node name="5" type="Sprite2D" parent="." unique_id=1823900375]
 texture_filter = 1
-position = Vector2(-191, -31)
-scale = Vector2(3, 3)
-texture = ExtResource("8_wsu2k")
-
-[node name="Stone2" type="Sprite2D" parent="." unique_id=1330177323]
-texture_filter = 1
-position = Vector2(175, -21)
-scale = Vector2(5, 5)
-texture = ExtResource("9_k12tt")
-
-[node name="Flower1" type="Sprite2D" parent="." unique_id=2016399140]
-texture_filter = 1
-position = Vector2(-117, 68)
-scale = Vector2(2, 2)
-texture = ExtResource("10_h1bgf")
-
-[node name="Stone13" type="Sprite2D" parent="." unique_id=1875193513]
-texture_filter = 1
-position = Vector2(286, 130)
-scale = Vector2(3, 3)
-texture = ExtResource("11_b3802")
-
-[node name="1" type="Sprite2D" parent="." unique_id=749509588]
-texture_filter = 1
-position = Vector2(-224.5, 162.5)
-scale = Vector2(2.8076923, 2.5652175)
-texture = ExtResource("12_fevyy")
-
-[node name="3" type="Sprite2D" parent="." unique_id=1242220675]
-texture_filter = 1
-position = Vector2(286.75, -56)
-scale = Vector2(1.8962262, 2.4117649)
-texture = ExtResource("13_hibaj")
-
-[node name="5" type="Sprite2D" parent="." unique_id=1082533402]
-texture_filter = 1
-position = Vector2(216, -34)
-scale = Vector2(1.6363636, 1.8571428)
+position = Vector2(172.5, 317.5)
+scale = Vector2(2.0454545, 2.5)
 texture = ExtResource("14_pdsj5")
 
-[node name="4" type="Sprite2D" parent="." unique_id=1082995914]
+[node name="1" type="Sprite2D" parent="." unique_id=1994627540]
 texture_filter = 1
-position = Vector2(-86.75, 273.5)
-scale = Vector2(1.8018868, 1.8529412)
-texture = ExtResource("13_hibaj")
+position = Vector2(83, 338)
+scale = Vector2(2.3611114, 2.3611114)
+texture = ExtResource("12_hibaj")
 
-[node name="6" type="Sprite2D" parent="." unique_id=490654197]
+[node name="Tree1" type="Sprite2D" parent="." unique_id=333917839]
 texture_filter = 1
-position = Vector2(-9.999999, 270)
-scale = Vector2(1.7727273, 2.0384614)
-texture = ExtResource("15_ee4r6")
+position = Vector2(345, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("13_pdsj5")
+
+[node name="Lamp3" type="Sprite2D" parent="." unique_id=1312796665]
+texture_filter = 1
+position = Vector2(219, 281)
+scale = Vector2(2.3461547, 2.3461547)
+texture = ExtResource("14_ee4r6")
+
+[node name="Tree2" type="Sprite2D" parent="." unique_id=1511211777]
+texture_filter = 1
+position = Vector2(-76.63461, 313.5)
+scale = Vector2(1.5769231, 1.5769231)
+texture = ExtResource("15_gt3je")
+
+[node name="Flower1" type="Sprite2D" parent="." unique_id=1512364735]
+texture_filter = 1
+position = Vector2(-16.5, 181.5)
+scale = Vector2(3.8333333, 3.8333333)
+texture = ExtResource("10_h1bgf")
+
+[node name="2" type="Sprite2D" parent="." unique_id=38501473]
+texture_filter = 1
+position = Vector2(252, 184)
+scale = Vector2(2.1086957, 2.1086957)
+texture = ExtResource("12_fevyy")
+
+[node name="3" type="Sprite2D" parent="." unique_id=762138827]
+texture_filter = 1
+position = Vector2(-79, 244)
+scale = Vector2(1.7307692, 1.7307693)
+texture = ExtResource("18_3pmx8")
+
+[node name="Stone13" type="Sprite2D" parent="." unique_id=74123800]
+texture_filter = 1
+position = Vector2(-232.00002, 324)
+scale = Vector2(2.85, 2.85)
+texture = ExtResource("11_b3802")
+
+[node name="Stone9" type="Sprite2D" parent="." unique_id=588323757]
+texture_filter = 1
+position = Vector2(-248, 143)
+scale = Vector2(3.625, 3.625)
+texture = ExtResource("20_u50mg")
+
+[node name="Area2D2" parent="." unique_id=224466374 instance=ExtResource("8_344ge")]
+position = Vector2(125, 196)
+
+[node name="Area2D3" parent="." unique_id=2058608853 instance=ExtResource("8_344ge")]
+position = Vector2(5, 435)
+
+[node name="Area2D4" parent="." unique_id=253891668 instance=ExtResource("8_344ge")]
+position = Vector2(-348, 299)
+
+[node name="Area2D5" parent="." unique_id=1349035196 instance=ExtResource("8_344ge")]
+position = Vector2(312, 269)
