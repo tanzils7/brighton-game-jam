@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dj7y4uei7gduc"]
+
+[ext_resource type="Texture2D" uid="uid://bt8co46vaw76x" path="res://Assets/Sprites/Object Sprites/relic.png" id="1_81glj"]
+[ext_resource type="Script" uid="uid://dig1g0gbqbevh" path="res://Scripts/Object Scripts/reward.gd" id="1_xvahk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81glj"]
+size = Vector2(23, 33)
+
+[node name="Reward" type="Area2D" unique_id=1073919995]
+script = ExtResource("1_xvahk")
+
+[node name="Relic" type="Sprite2D" parent="." unique_id=1877000265]
+texture = ExtResource("1_81glj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=980973290]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_81glj")

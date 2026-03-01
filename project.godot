@@ -23,6 +23,10 @@ Global="*uid://duwg17uvlccka"
 
 version_control/autoload_on_startup=true
 
+[global_group]
+
+pickup=""
+
 [input]
 
 Up={
