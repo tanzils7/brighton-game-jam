@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 300
 @export var dashSpeed: float = 600
 
+
+@onready var animation = $AnimatedSprite2D
 @onready var meleeHitbox = $MeleePivot/MeleeHitbox
 @onready var swordVFX = $MeleePivot/SwordVFX
 @onready var swingPivot = $MeleePivot 
@@ -83,7 +85,7 @@ func updateTimers(delta: float):
 			meleeHitbox.monitoring = false
 			swordVFX.visible = false
 
-	# ✅ Dash timer MUST be independent of attacking
+	
 	if isDashing:
 		dashTimer -= delta
 		if dashTimer <= 0:
@@ -134,6 +136,26 @@ func _physics_process(delta: float) -> void:
 		facingDir = inputDir.normalized()
 
 	updateTimers(delta)
+	
+	if inputDir == Vector2(-1,0):
+		animation.play("run_l")
+	elif inputDir == Vector2(1,0):
+		animation.play("run_r")
+	elif inputDir == Vector2(0,-1):
+		animation.play("run_b")
+	elif inputDir == Vector2(0,1):
+		animation.play("run_f")
+	elif facingDir == Vector2(-1,0) and  inputDir == Vector2.ZERO:
+		animation.play("idle_l")
+	elif facingDir == Vector2(1,0) and  inputDir == Vector2.ZERO:
+		animation.play("idle_r")
+	elif facingDir == Vector2(0,-1) and  inputDir == Vector2.ZERO:
+		animation.play("idle_b")
+	elif facingDir == Vector2(0,1) and inputDir == Vector2.ZERO:
+		animation.play("idle_f")
+		
+	
+		
 
 	if Input.is_action_just_pressed("Attack"):
 		meleeAttack()
