@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dfe3xecv6dhov"]
+
+[ext_resource type="Script" uid="uid://daswl6w0ogc4x" path="res://Scripts/Object Scripts/drop_off_zone.gd" id="1_vdgsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16rcd"]
+size = Vector2(128, 127.5)
+
+[node name="DropOffZone" type="Area2D" unique_id=1457152375]
+script = ExtResource("1_vdgsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1697710195]
+position = Vector2(64, 63.25)
+shape = SubResource("RectangleShape2D_16rcd")

@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_t178x"]
 [ext_resource type="PackedScene" uid="uid://jgm5w7av2rff" path="res://Scenes/SortingObject.tscn" id="3_08mog"]
 [ext_resource type="Script" uid="uid://n3kiv2lswyqs" path="res://Scripts/Object Scripts/Spawner.gd" id="4_2tdgx"]
+[ext_resource type="PackedScene" uid="uid://dfe3xecv6dhov" path="res://Scenes/drop_off_zone.tscn" id="5_1d4l7"]
+[ext_resource type="Script" uid="uid://cb0ohambdfa43" path="res://Scripts/Object Scripts/doz_owner.gd" id="5_wo6g7"]
+[ext_resource type="Script" uid="uid://nclo7615m8mb" path="res://Scripts/Object Scripts/reward_spawner.gd" id="7_ux05f"]
+[ext_resource type="PackedScene" uid="uid://dj7y4uei7gduc" path="res://Scenes/Reward.tscn" id="8_xba8n"]
 
 [node name="SortingRoom" type="Node2D" unique_id=775320620]
 
@@ -19,6 +23,7 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1554144549]
 position = Vector2(2, 2)
+scale = Vector2(2, 2)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Spawner" type="Node2D" parent="." unique_id=14620989]
@@ -30,3 +35,67 @@ position = Vector2(-8, 759)
 
 [node name="SpawnBottomRight" type="Marker2D" parent="Spawner" unique_id=1066273947]
 position = Vector2(833, 871)
+
+[node name="Label Owner" type="Node2D" parent="." unique_id=672487298]
+
+[node name="BlueLabel" type="Label" parent="Label Owner" unique_id=2142853655]
+modulate = Color(0, 0, 0, 1)
+offset_left = 154.0
+offset_top = 62.0
+offset_right = 189.0
+offset_bottom = 111.0
+text = "Blue
+"
+
+[node name="YellowLabel" type="Label" parent="Label Owner" unique_id=1734521807]
+modulate = Color(0, 0, 0, 1)
+offset_left = 621.0
+offset_top = 62.0
+offset_right = 672.0
+offset_bottom = 111.0
+text = "Yellow
+"
+
+[node name="CyanLabel" type="Label" parent="Label Owner" unique_id=1895812659]
+modulate = Color(0, 0, 0, 1)
+offset_left = 154.0
+offset_top = 449.0
+offset_right = 189.0
+offset_bottom = 498.0
+text = "Cyan
+
+"
+
+[node name="PinkLabel" type="Label" parent="Label Owner" unique_id=1339730081]
+modulate = Color(0, 0, 0, 1)
+offset_left = 633.0
+offset_top = 446.0
+offset_right = 668.0
+offset_bottom = 495.0
+text = "Pink"
+
+[node name="DOZ Owner" type="Node2D" parent="." unique_id=147959887]
+script = ExtResource("5_wo6g7")
+
+[node name="DropOffZoneBLUE" parent="DOZ Owner" unique_id=1457152375 instance=ExtResource("5_1d4l7")]
+position = Vector2(103, 91)
+
+[node name="DropOffZoneYELLOW" parent="DOZ Owner" unique_id=61365922 instance=ExtResource("5_1d4l7")]
+position = Vector2(582, 92)
+zone_key = "YELLOW"
+
+[node name="DropOffZoneCYAN" parent="DOZ Owner" unique_id=926845280 instance=ExtResource("5_1d4l7")]
+position = Vector2(104, 474)
+zone_key = "CYAN"
+
+[node name="DropOffZonePINK" parent="DOZ Owner" unique_id=64951230 instance=ExtResource("5_1d4l7")]
+position = Vector2(583, 474)
+zone_key = "PINK"
+
+[node name="RewardSpawner" type="Node2D" parent="." unique_id=603309389]
+script = ExtResource("7_ux05f")
+reward_scene = ExtResource("8_xba8n")
+spawn_point = NodePath("RewardSpawn")
+
+[node name="RewardSpawn" type="Marker2D" parent="RewardSpawner" unique_id=2141516266]
+position = Vector2(421, 310)

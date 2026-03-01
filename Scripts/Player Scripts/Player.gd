@@ -129,6 +129,10 @@ func _ready() -> void:
 	
 	if Global.next_spawn_position != Vector2.ZERO:
 		global_position = Global.next_spawn_position
+	
+	var g := get_node_or_null("/root/Global")
+	if g != null and g.next_spawn_position != Vector2.ZERO:
+		global_position = g.next_spawn_position
 
 func _physics_process(delta: float) -> void:
 	var inputDir: Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
