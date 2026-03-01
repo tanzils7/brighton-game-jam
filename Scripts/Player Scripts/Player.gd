@@ -23,6 +23,7 @@ var attackLockTimer: float = 0
 var attackActiveTimer: float = 0
 var swingStartAngle: float = 0
 var swingEndAngle: float = 0
+
 var isDashing: bool = false
 var dashTimer: float = 0
 var dashDirection: Vector2 = Vector2.ZERO
@@ -32,41 +33,45 @@ var dashCooldownTimer: float = 0
 func meleeAttack():
 	if meleeTimer > 0:
 		return
-	
+
 	meleeTimer = meleeCooldown
 	isAttacking = true
-	
+
 	attackLockTimer = attackLockTime
 	attackActiveTimer = attackActiveTime
-	
+
 	var baseAngle = facingDir.normalized().angle()
 	var arcRadians = deg_to_rad(swingArc)
-	
-	# Left → Right relative to facing
+
 	swingStartAngle = baseAngle - arcRadians / 2.0
 	swingEndAngle = baseAngle + arcRadians / 2.0
-	
-	# Reset pivot rotation; hitbox and VFX follow pivot
+
 	swingPivot.rotation = swingStartAngle
 	meleeHitbox.monitoring = true
 	swordVFX.visible = true
-	sfxSword.play();
+	sfxSword.play()
+
 
 func updateTimers(delta: float):
+	# Dash cooldown
 	if dashCooldownTimer > 0:
 		dashCooldownTimer -= delta
-	# COOLDOWN TICK
+		if dashCooldownTimer < 0:
+			dashCooldownTimer = 0
+
+	# Melee cooldown
 	if meleeTimer > 0:
 		meleeTimer -= delta
 		if meleeTimer < 0:
 			meleeTimer = 0
 
+	# Attack lock
 	if attackLockTimer > 0:
 		attackLockTimer -= delta
 		if attackLockTimer <= 0:
 			isAttacking = false
 
-	# HANDLE SWING ARC USING PIVOT
+	# Attack active + swing arc
 	if attackActiveTimer > 0:
 		attackActiveTimer -= delta
 
@@ -79,40 +84,51 @@ func updateTimers(delta: float):
 			meleeHitbox.monitoring = false
 			swordVFX.visible = false
 
+	# ✅ Dash timer MUST be independent of attacking
+	if isDashing:
+		dashTimer -= delta
+		if dashTimer <= 0:
+			isDashing = false
+
+
 func startDash(direction: Vector2) -> void:
 	isDashing = true
 	dashTimer = dashTime
 	dashCooldownTimer = dashCooldown
-	
+
 	if direction == Vector2.ZERO:
 		direction = facingDir
-	
+
 	dashDirection = direction.normalized()
 	velocity = dashDirection * dashSpeed
 	sfxDash.play()
+
 
 func _ready() -> void:
 	swordVFX.visible = false
 	meleeHitbox.monitoring = false
 
+
 func _physics_process(delta: float) -> void:
-	var inputDir: Vector2 = Input.get_vector("Left","Right","Up","Down")
+	var inputDir: Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
 	if inputDir != Vector2.ZERO:
 		facingDir = inputDir.normalized()
-	
+
 	updateTimers(delta)
-	
+
 	if Input.is_action_just_pressed("Attack"):
 		meleeAttack()
-	
+
 	if Input.is_action_just_pressed("Reset"):
 		get_tree().reload_current_scene()
-	
-	if Input.is_action_just_pressed("Dash") && dashCooldownTimer <= 0:
+
+	if Input.is_action_just_pressed("Dash") and dashCooldownTimer <= 0 and not isDashing:
 		startDash(inputDir)
-	
-	velocity = inputDir * speed
-	
-	
-	
+
+	# Movement: dash wins while active
+	if isDashing:
+		velocity = dashDirection * dashSpeed
+	else:
+		velocity = inputDir * speed
+
 	move_and_slide()

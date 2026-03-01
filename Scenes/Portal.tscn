@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://nubm6opwtfrf"]
 
 [ext_resource type="Texture2D" path="res://Assets/Sprites/Object Sprites/Dimensional_Portal.png" id="1_8igm0"]
-[ext_resource type="Script" path="res://Objects/NPCs/portal.gd" id="1_raemx"]
+[ext_resource type="Script" uid="uid://pna8yylbqlea" path="res://Objects/NPCs/portal.gd" id="1_raemx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_raemx"]
 atlas = ExtResource("1_8igm0")
@@ -67,3 +67,5 @@ animation = &"swirl"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1765863379]
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_8igm0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

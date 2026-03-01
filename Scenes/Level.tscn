@@ -36,9 +36,11 @@ tile_map_data = PackedByteArray("AAAAABAAAAAAAAAAAAABABAAAAAAAAAAAAACABAAAAAAAAA
 tile_set = SubResource("TileSet_f2txt")
 
 [node name="Player" parent="." unique_id=614550539 instance=ExtResource("1_0ba56")]
+position = Vector2(-6, 0)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=778009577]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385769602]
+position = Vector2(-6, 0)
 zoom = Vector2(2, 2)
