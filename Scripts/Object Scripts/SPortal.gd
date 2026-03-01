@@ -11,4 +11,3 @@ func _on_body_entered(body: Node2D) -> void:
 		Global.next_spawn_position = Vector2(200, 150)
 		get_tree().change_scene_to_file("res://Scenes/sorting_room.tscn")
 		
-
