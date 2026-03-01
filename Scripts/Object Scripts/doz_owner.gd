@@ -29,6 +29,7 @@ func check_all_zones() -> void:
 	if not reward_spawned:
 		_spawn_reward()
 		reward_spawned = true
+	_return_to_main()
 
 
 func _spawn_reward() -> void:
