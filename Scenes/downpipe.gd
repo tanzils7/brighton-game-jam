@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 func _update_correctness() -> void:
 	# Example: vertical = correct (you can replace this with your real logic)
 	var now_correct := $PipeV.visible
+	
 
 	if now_correct != is_correct:
 		is_correct = now_correct
