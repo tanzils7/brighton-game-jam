@@ -204,3 +204,13 @@ position = Vector2(-4.683612, 5.5451927)
 scale = Vector2(0.8769424, 0.7163224)
 sprite_frames = SubResource("SpriteFrames_bk0py")
 animation = &"idle"
+
+[node name="Label" type="Label" parent="." unique_id=2132531861]
+offset_left = 209.0
+offset_top = -29.0
+offset_right = 1086.0
+offset_bottom = 72.0
+text = "Pick up the boxes below by pressing 'F'. 
+Then place them in the correct boxes.
+When you're done press the button in the top right
+"
