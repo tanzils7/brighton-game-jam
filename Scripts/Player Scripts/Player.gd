@@ -107,6 +107,9 @@ func startDash(direction: Vector2) -> void:
 func _ready() -> void:
 	swordVFX.visible = false
 	meleeHitbox.monitoring = false
+	
+	if Global.next_spawn_position != Vector2.ZERO:
+		global_position = Global.next_spawn_position
 
 
 func _physics_process(delta: float) -> void:
