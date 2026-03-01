@@ -24,10 +24,5 @@ offset_right = 41.0
 offset_bottom = 235.0
 text = "Hello guys"
 
-[node name="Portal" parent="." unique_id=1346417457 instance=ExtResource("3_8gbba")]
-position = Vector2(-361.00003, 311.00003)
-scale = Vector2(5, 5)
-
-[node name="Portal2" parent="." unique_id=1175655239 instance=ExtResource("3_8gbba")]
-position = Vector2(389, 360.00003)
-scale = Vector2(5, 5)
+[node name="Portal" parent="." unique_id=1737815147 instance=ExtResource("3_8gbba")]
+position = Vector2(-317, 445)
