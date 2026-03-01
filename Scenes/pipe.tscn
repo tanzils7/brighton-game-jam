@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfb82kp3umljj"]
 
-[ext_resource type="Texture2D" uid="uid://e36u5w126h7c" path="res://Sprites/Cable Horizontal.png" id="1_n21g0"]
+[ext_resource type="Texture2D" uid="uid://dnakgsiqje74m" path="res://Sprites/cableHF.png" id="1_n21g0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnit7"]
 size = Vector2(32, 32)
