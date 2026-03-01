@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bo8f7k2t6qy84"]
+[gd_scene format=4 uid="uid://d4d1s7mkutlch"]
 
 [ext_resource type="Texture2D" uid="uid://bmy10131g7lnn" path="res://Sprites/testGrid.png" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_8gbba"]

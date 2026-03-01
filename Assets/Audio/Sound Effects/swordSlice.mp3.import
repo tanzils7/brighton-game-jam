@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjm4gagk3rxxj"
+path="res://.godot/imported/swordSlice.mp3-508263c2aa641329d66ee4d1e9ac0362.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sound Effects/swordSlice.mp3"
+dest_files=["res://.godot/imported/swordSlice.mp3-508263c2aa641329d66ee4d1e9ac0362.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
