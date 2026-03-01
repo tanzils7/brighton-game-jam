@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfb82kp3umljj"]
 
-[ext_resource type="Script" uid="uid://b6v7fyhs7pjbb" path="res://Scenes/pipe.gd" id="1_hnit7"]
+[ext_resource type="Script" uid="uid://b6v7fyhs7pjbb" path="res://Scenes/downpipe.gd" id="1_hnit7"]
 [ext_resource type="Texture2D" uid="uid://dnakgsiqje74m" path="res://Sprites/cableHF.png" id="1_n21g0"]
 [ext_resource type="Texture2D" uid="uid://cx21wphm06fq3" path="res://Sprites/cableVF.png" id="3_p1buf"]
 
