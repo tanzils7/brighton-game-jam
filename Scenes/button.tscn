@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d20xlomgstf6d"]
+
+[ext_resource type="Script" uid="uid://dsu0oho04tpfb" path="res://Scenes/button.gd" id="1_1cmwl"]
+
+[node name="Button" type="Button" unique_id=915042117]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 260.0
+offset_bottom = 35.0
+text = "Take me back to the main scene"
+script = ExtResource("1_1cmwl")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

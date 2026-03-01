@@ -1,20 +1,21 @@
 [gd_scene format=4 uid="uid://bo8f7k2t6qy84"]
 
-[ext_resource type="PackedScene" uid="uid://dtvnnpubyyrgq" path="res://Scenes/tileMapTestLayer.tscn" id="1_bo1nx"]
+
+[ext_resource type="PackedScene" path="res://Scenes/tileMapTestLayer.tscn" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://c6velg1csgyla" path="res://Scripts/Level Scripts/Level.gd" id="1_ynf5e"]
+
 [ext_resource type="Texture2D" uid="uid://v33esdjmadm6" path="res://Sprites/TilesetField.png" id="2_6bp64"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://nubm6opwtfrf" path="res://Scenes/circuitPortal.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://b04v82d4cujy4" path="res://Scenes/sortingPortal.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://gnsr8klxmyfj" path="res://Scripts/Object Scripts/SPortal.gd" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://byhjifwmmnwi6" path="res://Sprites/FieldsTileset.png" id="6_21xkr"]
-[ext_resource type="Texture2D" uid="uid://jh58thwe4im1" path="res://Sprites/Objects/Stone/stone1.png" id="8_wsu2k"]
-[ext_resource type="Texture2D" uid="uid://dcre4hl42ghsl" path="res://Sprites/Objects/Stone/stone2.png" id="9_k12tt"]
-[ext_resource type="Texture2D" uid="uid://cbvk6wraqi0gg" path="res://Sprites/Objects/Flower/flower1.png" id="10_h1bgf"]
-[ext_resource type="Texture2D" uid="uid://b7gndlhu5lta6" path="res://Sprites/Objects/Stone/Stone13.png" id="11_b3802"]
-[ext_resource type="Texture2D" uid="uid://cbahp4328e2p6" path="res://Sprites/Objects/9 Bush/1.png" id="12_fevyy"]
-[ext_resource type="Texture2D" uid="uid://ddbme5thqlwnq" path="res://Sprites/Objects/8 Camp/3.png" id="13_hibaj"]
-[ext_resource type="Texture2D" uid="uid://vnlvw05wbymy" path="res://Sprites/Objects/8 Camp/5.png" id="14_pdsj5"]
-[ext_resource type="Texture2D" uid="uid://bn7iiyqiscufc" path="res://Sprites/Objects/8 Camp/6.png" id="15_ee4r6"]
+
+
+[ext_resource type="PackedScene" uid="uid://mxatebwmw8vx" path="res://Scenes/Enemy.tscn" id="8_344ge"]
+[ext_resource type="AudioStream" uid="uid://b7wbrklmh84mt" path="res://Assets/Audio/Music/RPG world music.mp3" id="10_hptm8"]
+
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_344ge"]
 texture = ExtResource("6_21xkr")
@@ -350,6 +351,7 @@ texture = ExtResource("2_6bp64")
 sources/0 = SubResource("TileSetAtlasSource_hptm8")
 
 [node name="Level" type="Node2D" unique_id=652244745]
+script = ExtResource("1_ynf5e")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=343100345]
 visible = false
@@ -389,7 +391,13 @@ position = Vector2(383, 362)
 scale = Vector2(5, 5)
 script = ExtResource("5_kry3j")
 
-[node name="Node" type="Node" parent="." unique_id=385314362]
+
+[node name="Area2D" parent="." unique_id=1205553354 instance=ExtResource("8_344ge")]
+position = Vector2(-54, 134)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1886076200]
+stream = ExtResource("10_hptm8")
+
 
 [node name="Objects" type="Node2D" parent="." unique_id=19212036]
 

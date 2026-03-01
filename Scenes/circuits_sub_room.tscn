@@ -1,10 +1,14 @@
-[gd_scene format=4 uid="uid://cv1d7fa8jtwu4"]
+[gd_scene format=4 uid="uid://bxr2swu4kn56m"]
 
-[ext_resource type="PackedScene" uid="uid://dtvnnpubyyrgq" path="res://Scenes/tileMapTestLayer.tscn" id="1_vuhiy"]
+[ext_resource type="Script" uid="uid://k6lb0l2tkky6" path="res://Scenes/circuits_sub_room.gd" id="1_gk6ag"]
+[ext_resource type="PackedScene" path="res://Scenes/tileMapTestLayer.tscn" id="1_vuhiy"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_58c3e"]
 [ext_resource type="PackedScene" uid="uid://bfb82kp3umljj" path="res://Scenes/pipe.tscn" id="3_fgpi4"]
+[ext_resource type="AudioStream" uid="uid://3n7ypuemr7nc" path="res://Assets/Audio/Music/Sub space music.mp3" id="5_0xgul"]
+[ext_resource type="PackedScene" uid="uid://d20xlomgstf6d" path="res://Scenes/button.tscn" id="6_0xgul"]
 
 [node name="CircuitsSubRoom" type="Node2D" unique_id=553984084]
+script = ExtResource("1_gk6ag")
 
 [node name="TileMapLayer" parent="." unique_id=1386491614 instance=ExtResource("1_vuhiy")]
 position = Vector2(318, 494)
@@ -92,3 +96,12 @@ offset_top = -68.0
 offset_right = 743.0
 offset_bottom = -45.0
 text = "Up"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1649718859]
+stream = ExtResource("5_0xgul")
+
+[node name="Button" parent="." unique_id=915042117 instance=ExtResource("6_0xgul")]
+offset_left = 554.0
+offset_top = 133.0
+offset_right = 810.0
+offset_bottom = 164.0
