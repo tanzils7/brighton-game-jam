@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://d036kg3ynjr7q"]
 
+[ext_resource type="Script" uid="uid://bns58gm3l8sh" path="res://Scenes/sorting_room.gd" id="1_o3phl"]
 [ext_resource type="PackedScene" path="res://Scenes/tileMapTestLayer.tscn" id="1_qb6h6"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://Scenes/Player.tscn" id="2_t178x"]
 [ext_resource type="PackedScene" uid="uid://jgm5w7av2rff" path="res://Scenes/SortingObject.tscn" id="3_08mog"]
@@ -8,8 +9,11 @@
 [ext_resource type="Script" uid="uid://cb0ohambdfa43" path="res://Scripts/Object Scripts/doz_owner.gd" id="5_wo6g7"]
 [ext_resource type="Script" uid="uid://nclo7615m8mb" path="res://Scripts/Object Scripts/reward_spawner.gd" id="7_ux05f"]
 [ext_resource type="PackedScene" uid="uid://dj7y4uei7gduc" path="res://Scenes/Reward.tscn" id="8_xba8n"]
+[ext_resource type="AudioStream" uid="uid://3n7ypuemr7nc" path="res://Assets/Audio/Music/Sub space music.mp3" id="10_mjjnl"]
+[ext_resource type="PackedScene" uid="uid://d20xlomgstf6d" path="res://Scenes/button.tscn" id="11_eahx7"]
 
 [node name="SortingRoom" type="Node2D" unique_id=775320620]
+script = ExtResource("1_o3phl")
 
 [node name="TileMapLayer" parent="." unique_id=1386491614 instance=ExtResource("1_qb6h6")]
 position = Vector2(391, 410)
@@ -99,3 +103,12 @@ spawn_point = NodePath("RewardSpawn")
 
 [node name="RewardSpawn" type="Marker2D" parent="RewardSpawner" unique_id=2141516266]
 position = Vector2(421, 310)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1269306616]
+stream = ExtResource("10_mjjnl")
+
+[node name="Button" parent="." unique_id=915042117 instance=ExtResource("11_eahx7")]
+offset_left = 647.0
+offset_top = -58.0
+offset_right = 903.0
+offset_bottom = -27.0
