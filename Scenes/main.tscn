@@ -25,4 +25,5 @@ offset_bottom = 235.0
 text = "Hello guys"
 
 [node name="Portal" parent="." unique_id=1737815147 instance=ExtResource("3_8gbba")]
-position = Vector2(-317, 445)
+position = Vector2(-329.00003, 344)
+scale = Vector2(5, 5)

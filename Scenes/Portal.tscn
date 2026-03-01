@@ -1,20 +1,72 @@
 [gd_scene format=3 uid="uid://nubm6opwtfrf"]
 
 [ext_resource type="Script" uid="uid://d0x3mqppp4t2l" path="res://Scripts/Object Scripts/portal.gd" id="1_lvd5j"]
+[ext_resource type="Texture2D" uid="uid://c2fadnd2677he" path="res://Objects/NPCs/Dimensional_Portal.png" id="2_mdgx6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bseyl"]
+atlas = ExtResource("2_mdgx6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtwac"]
+atlas = ExtResource("2_mdgx6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf6x2"]
+atlas = ExtResource("2_mdgx6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av48w"]
+atlas = ExtResource("2_mdgx6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koq56"]
+atlas = ExtResource("2_mdgx6")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsgt0"]
+atlas = ExtResource("2_mdgx6")
+region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnmen"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bseyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtwac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf6x2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av48w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koq56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsgt0")
+}],
+"loop": true,
+"name": &"swirl",
+"speed": 5.0
+}]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvd5j"]
-size = Vector2(59, 65)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7shum"]
+radius = 7.0
+height = 32.0
 
 [node name="Portal" type="Area2D" unique_id=1737815147]
 script = ExtResource("1_lvd5j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=933149605]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tnmen")
+animation = &"swirl"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=922925851]
-position = Vector2(-1.5, 0.5)
-shape = SubResource("RectangleShape2D_lvd5j")
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_7shum")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
