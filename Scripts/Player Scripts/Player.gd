@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var swingPivot = $MeleePivot 
 @onready var sfxSword = $"SFX Manager/swordSFX"
 @onready var sfxDash = $"SFX Manager/sfxDash"
+@onready var carryPoint = $CarryPoint
 
 const meleeCooldown: float = 0.5
 const attackLockTime: float = 0.12
@@ -23,12 +24,11 @@ var attackLockTimer: float = 0
 var attackActiveTimer: float = 0
 var swingStartAngle: float = 0
 var swingEndAngle: float = 0
-
 var isDashing: bool = false
 var dashTimer: float = 0
 var dashDirection: Vector2 = Vector2.ZERO
 var dashCooldownTimer: float = 0
-
+var carried: Node2D = null
 
 func meleeAttack():
 	if meleeTimer > 0:
@@ -50,7 +50,6 @@ func meleeAttack():
 	meleeHitbox.monitoring = true
 	swordVFX.visible = true
 	sfxSword.play()
-
 
 func updateTimers(delta: float):
 	# Dash cooldown
@@ -90,7 +89,6 @@ func updateTimers(delta: float):
 		if dashTimer <= 0:
 			isDashing = false
 
-
 func startDash(direction: Vector2) -> void:
 	isDashing = true
 	dashTimer = dashTime
@@ -103,6 +101,25 @@ func startDash(direction: Vector2) -> void:
 	velocity = dashDirection * dashSpeed
 	sfxDash.play()
 
+func try_pickup(body: Node2D) -> void:
+	if carried != null:
+		return
+	if body == null:
+		return
+	if not body.is_in_group("pickup"):
+		return
+
+	# Tell the object to attach to us
+	body.call("attach_to", carryPoint)
+	carried = body
+
+func drop_carried() -> void:
+	if carried == null:
+		return
+
+	# Drop at carry point position (slightly below so it doesn't overlap player)
+	carried.call("detach", global_position)
+	carried = null
 
 func _ready() -> void:
 	swordVFX.visible = false
@@ -110,7 +127,6 @@ func _ready() -> void:
 	
 	if Global.next_spawn_position != Vector2.ZERO:
 		global_position = Global.next_spawn_position
-
 
 func _physics_process(delta: float) -> void:
 	var inputDir: Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
@@ -127,6 +143,10 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("Dash") and dashCooldownTimer <= 0 and not isDashing:
 		startDash(inputDir)
+	
+	if Input.is_action_just_pressed("Interact"):
+		if carried != null:
+			drop_carried()
 
 	# Movement: dash wins while active
 	if isDashing:

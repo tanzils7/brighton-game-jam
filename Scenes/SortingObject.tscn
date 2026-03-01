@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://jgm5w7av2rff"]
+
+[ext_resource type="Texture2D" uid="uid://qlq3aekdw172" path="res://Assets/Sprites/Object Sprites/Placeholder1.png" id="1_pyjvq"]
+[ext_resource type="Script" uid="uid://6n2kaokxdpha" path="res://Scripts/Object Scripts/Interactable.gd" id="1_y86on"]
+[ext_resource type="Texture2D" uid="uid://dnfj7he0uue2n" path="res://Assets/Sprites/Object Sprites/Placeholder2.png" id="3_vyeai"]
+[ext_resource type="Texture2D" uid="uid://v0agai2m4pxl" path="res://Assets/Sprites/Object Sprites/Placeholder3.png" id="4_me4rw"]
+[ext_resource type="Texture2D" uid="uid://bqk31hekleghn" path="res://Assets/Sprites/Object Sprites/Placeholder4.png" id="5_a852w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y86on"]
+size = Vector2(32, 32)
+
+[node name="SortingObject" type="Area2D" unique_id=747991279]
+script = ExtResource("1_y86on")
+placeholder1 = ExtResource("1_pyjvq")
+placeholder2 = ExtResource("3_vyeai")
+placeholder3 = ExtResource("4_me4rw")
+placeholder4 = ExtResource("5_a852w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=849785812]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1337464603]
+shape = SubResource("RectangleShape2D_y86on")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

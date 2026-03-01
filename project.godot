@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Game Jam"
-run/main_scene="uid://bo8f7k2t6qy84"
+run/main_scene="uid://d4d1s7mkutlch"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*uid://duwg17uvlccka"
+
+[editor]
+
+version_control/autoload_on_startup=true
 
 [input]
 
